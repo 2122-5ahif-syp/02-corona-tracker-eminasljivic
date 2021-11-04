@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>corona-tracker - 1.0-SNAPSHOT</title>
+    <script>
+        window.addEventListener("load", function(event) {
+            if(window.localStorage.getItem('firstName')){
+                debugger;
+                document.getElementById('firstName').value = window.localStorage.getItem('firstName');
+                document.getElementById('lastName').value = window.localStorage.getItem('lastName');
+                document.getElementById('email').value = window.localStorage.getItem('email');
+                document.getElementById('telephoneNo').value = window.localStorage.getItem('telephoneNo');
+            }
+        });
+
+        function savePerson(){
+            debugger;
+            window.localStorage.setItem('firstName', document.getElementById('firstName').value);
+            window.localStorage.setItem('lastName', document.getElementById('lastName').value);
+            window.localStorage.setItem('email', document.getElementById('email').value);
+            window.localStorage.setItem('telephoneNo', document.getElementById('telephoneNo').value);
+        }
+    </script>
+</head>
+<body>
+<form action="/person" method="POST" onsubmit="return savePerson()">
+    <input id="firstName" type="text" name="firstName">
+    <input id="lastName" type="text" name="lastName">
+    <input id="email" type="text" name="email">
+    <input id="telephoneNo" type="text" name="telephoneNo">
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
